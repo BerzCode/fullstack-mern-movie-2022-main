@@ -18,6 +18,10 @@ app.use("/api/v1", routes);
 const port = process.env.PORT || 5000;
 
 const server = http.createServer(app);
+app.get('/', (request, response) => {
+  console.log(request);
+  return response.status(234).send('Netflix');
+});
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log("Mongodb connected");
